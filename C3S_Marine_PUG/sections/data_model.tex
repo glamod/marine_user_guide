@@ -1,0 +1,176 @@
+\section{Data model and formats} \label{data_model}
+Data from the Climate Data Store are returned in delimited text files (.csv), with 19 columns per row and one observed value per row. 
+The columns are listed in table \ref{tab:cdm_lite_main} together with a brief description.  
+The date and time of the observation is given by the \code{date\_time} column, with the value returned as a string of the format \code{YYYY-MM-DD hh:mm:ss}. 
+All data are returned in the UTC time zone.
+The location of the observation is given by the \code{latitude} and \code{longitude} columns in the WGS84 / EPSG4326 coordinate reference system. 
+The variable being reported / observed is given by the \code{observed\_variable} column, the units by the \code{units} column and the observed value by the \code{observation\_value} column. 
+The remaining columns provide further contextual information for the observations, such platform type and station identifiers etc. 
+A number of the columns are enumerated using code tables, indicated by the text \code{(coded)} in the Kind column of Table \ref{tab:cdm_lite_main}.
+These code tables are reproduced in tables \ref{tab:report_type_main} to \ref{tab:licence_main} but with only those values used in the marine data listed.
+
+\begin{table}
+\caption{Data model}
+\label{tab:cdm_lite_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Field & \bfseries Kind & \bfseries Description
+\csvreader[head to column names, separator=semicolon]{./data_model/cdm_lite.csv}{}
+{\\\hline\Field & \Kind & \Description}
+\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+% =========================
+% Report type
+% =========================
+\begin{table}
+\caption{Report type}
+\label{tab:report_type_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Report type & \bfseries Abbreviation & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Report type=\type, Abbreviation=\abbrev, Description=\desc}, 
+    separator=semicolon]{./data_model/report_type.csv}{}
+{\\\hline\type & \abbrev & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+% \end{table}
+% =========================
+% Date / time meaning
+% =========================
+% \begin{table}
+\caption{Date / time meaning}
+\label{tab:timestamp_meaning_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Date / time meaning & \bfseries Name & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Date / time meaning=\licence, Name=\name, Description=\desc}, 
+    separator=semicolon]{./data_model/date_time_meaning.csv}{}
+{\\\hline\licence & \name & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+% \end{table}
+% =========================
+% Value significance
+% =========================
+% \begin{table}
+\caption{Value significance}
+\label{tab:value_significance_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Value significance & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Value significance=\sig, Description=\desc}, 
+    separator=semicolon]{./data_model/value_significance.csv}{}
+{\\\hline\sig & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+% =========================
+% Observation duration
+% =========================
+\begin{table}
+\caption{Observation duration}
+\label{tab:duration_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Observation duration & \bfseries Description & \bfseries Period (seconds)
+\csvreader[
+    head to column names=false,
+    column names={Observation duration=\duration, Description=\desc, Period (seconds)=\period  }, 
+    separator=semicolon]{./data_model/observation_duration.csv}{}
+{\\\hline\duration & \desc & \period}
+\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+% =========================
+% Platform type
+% =========================
+ \begin{table}
+\caption{Platform type}
+\label{tab:platform_type_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Platform type & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Platform type=\type, Description=\desc}, 
+    separator=semicolon]{./data_model/platform_type.csv}{}
+{\\\hline\type & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+% \end{table}
+% =========================
+% Station type
+% =========================
+%\begin{table}
+\caption{Station type}
+\label{tab:station_type_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Station type & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Station type=\type, Description=\desc}, 
+    separator=semicolon]{./data_model/station_type.csv}{}
+{\\\hline\type & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+% \end{table}
+% =========================
+% Quality flag
+% =========================
+%\begin{table}
+\caption{Quality flag}
+\label{tab:qc_flag_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Quality flag & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Quality flag=\flag, Description=\desc}, 
+    separator=semicolon]{./data_model/quality_flag.csv}{}
+{\\\hline\flag & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+%\end{table}
+% =========================
+% Data policy / licence
+% =========================
+%\begin{table}
+\caption{Data policy / licence}
+\label{tab:licence_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Data policy / licence & \bfseries Name & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Data policy / licence=\licence, Name=\name, Description=\desc}, 
+    separator=semicolon]{./data_model/data_policy_licence.csv}{}
+{\\\hline\licence & \name & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+\end{table}

@@ -1,0 +1,129 @@
+% Overview:
+%   Main TeX file for the project:
+%       Subfiles should reside in the sections directory with a tex extension;
+%       Images / resources should reside in the resources directory;
+% Build:
+%   $ lualatex main.tex
+
+% Set document root
+% !TEX root = /Users/dyb/GitHub/user_guide/C3S_Marine_PUG/main.tex
+% ======================================
+\documentclass[a4paper,12pt,hidelinks]{article}
+\usepackage[top=4.5 cm,bottom=2.54cm, lmargin=2cm, rmargin=1.74cm, headheight=3.25cm]{geometry}
+\usepackage{subfiles}
+\usepackage{enumitem}
+\usepackage{listings}
+% \usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{csvsimple}
+% ======================================
+% packages use for C3S styling
+% ======================================
+\usepackage{sectsty}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{fontspec}
+\usepackage{changepage}
+\usepackage{pdfpages}
+\usepackage{multirow,tabularx}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+% ======================================
+% bibliography and style
+% ======================================
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+% ======================================
+
+
+
+% C3S layout and style
+% ======================================
+\newcommand{\code}[1]{\texttt{#1}} % cf attributes, variables etc
+% set fonts to use
+\setmainfont{Calibri}
+\setsansfont{Calibri}
+% colours to use
+\definecolor{maroon}{RGB}{122,11,44}
+\sectionfont{\color{maroon}}  % sets colour of section headings
+\definecolor{maroon_banner}{RGB}{141,28,59}
+\renewcommand{\familydefault}{\sfdefault}
+% no indent of new paragraphs
+\setlength{\parindent}{0pt}
+% increase space between paragraphs
+\setlength{\parskip}{0.5em}
+% framed text boxes
+\newcounter{FramedDepth}
+\setcounter{FramedDepth}{-1}
+\mdfdefinestyle{Framed}{linecolor=black,linewidth=1pt,leftmargin=10pt,rightmargin=10pt,
+                        innerleftmargin=10pt,innerrightmargin=10pt}
+\newenvironment{Framed}{%
+  \addtocounter{FramedDepth}{1}
+  \ifcase\theFramedDepth\def\FrameColour{white!50}%
+    \or\def\FrameColour{white!50}%
+    \or\def\FrameColour{white!50}%
+    \or\def\FrameColour{white!50}%
+    \fi%
+  \begin{mdframed}[style=Framed,backgroundcolor=\FrameColour]%
+}{\end{mdframed}\addtocounter{FramedDepth}{-1}}
+% 1.25 18.4, 1.7
+% 0.65
+% Copernicus logo on page 3 onwards needs to go at (18.4cm, 1.7cm from top left of page) size (0.9cm by 0.86 cm)
+% headers and footers
+\headheight 3.5 cm
+\headsep  0.5 cm
+\lhead{\textcolor{maroon}{Copernicus Climate Change Service}\vskip 0.5 cm}
+\rhead{\includegraphics{resources/c3s_logo_small.png} \vskip 0.3 cm}
+\lfoot{C3S\_311a\_Lot2\_NUIM\_2017SC2–Fifth version Marine Product User Guide (MPUG)}
+\cfoot{}
+\rfoot{Page \textbf{\thepage}  of \textbf{\pageref{LastPage}} }
+% ======================================
+% End of C3S style
+% ======================================
+% Set title etc
+% ======================================
+\title {Marine PUG}
+\author {David I. Berry \\ National Oceanography Centre, UK}
+\date{\today}
+% ======================================
+% Page style
+\pagestyle{fancy}
+% ======================================
+% Now begin the document
+% ======================================
+\begin{document}\thispagestyle{empty}
+\subfile{sections/cover_page.tex}
+\newpage\subfile{sections/front_matter.tex}
+\newpage\subfile{sections/contributors.tex}
+\newpage\tableofcontents
+\newpage\subfile{sections/change_log.tex}
+
+% ======================================
+% Content here 
+% ======================================
+%\newpage\subfile{sections/related_docs.tex}
+%\newpage\subfile{sections/summary.tex}
+\newpage\subfile{sections/quick_start.tex}
+\newpage\subfile{sections/data_sources.tex}
+\newpage\subfile{sections/quality_control.tex}
+\newpage\subfile{sections/data_access.tex}
+\newpage\subfile{sections/data_model.tex}
+\newpage\subfile{sections/licensing.tex}
+% \newpage\subfile{sections/maturity.tex}
+% ======================================
+% bibliography
+% ======================================
+\bibliography{bibliography/references}
+% ======================================
+% End of Content
+% ======================================
+\clearpage
+\ifodd\value{page}\hbox{}\vspace*{\fill}\thispagestyle{empty}\newpage\fi
+\includepdf[fitpaper,pages={1}]{resources/backpage.pdf}
+\end{document}
+% ======================================
+% End of document
+% ======================================

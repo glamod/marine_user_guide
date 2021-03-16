@@ -1,0 +1,20 @@
+Field;Kind;Description
+observation\_id;character;Unique identifier for observation.
+report\_type;integer (coded);0, subdaily / hourly data.
+date\_time;timestamp with time zone (YYYY-MM-DD hh:mm:ss+0Z);Timestamp (date/time) of observation.
+date\_time\_meaning;integer (coded);2, date\_time represents the end of the time period over which the observation was made.
+latitude;numeric;Latitude of the observation (degrees North), range -90 to 90.
+longitude;numeric;Longitude of the observation (degrees East), range -180 to 180. 
+observation\_height\_above\_station\_surface;numeric;Height of the sensor above local ground or sea level in metres. Positive values for observations above the surface. For visual observations, height of the observing platform.
+observed\_variable;character;The variable being observed / measured. 
+units;character;Units of the observed variable.
+observation\_value;numeric;The value of the observed variable.
+value\_significance;integer (coded);The significance of the observed variable, e.g. instantaneous value or mean over indicated period.
+observation\_duration;integer (coded);The time period over which the observation was made. 
+platform\_type;integer (coded);The type of structure upon which the sensors are mounted, e.g. ship, drifting buoy, tower etc.
+station\_type;integer (coded);Type of station, e.g. sea station, land station 
+primary\_station\_id;character;The primary station identifier, e.g. ship callsign, buoy number, WIGOS station identifier.
+station\_name;character;Name of the station or site.
+quality\_flag;integer (coded);Flag indicating the quality of the observation.
+data\_policy\_licence;integer (coded);Usage permissions / licence for the data.
+source\_id;character;Identifier used to link the observation to the original source of the data.

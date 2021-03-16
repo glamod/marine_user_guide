@@ -1,0 +1,71 @@
+% cover page
+% ==============================
+% top banner
+% ==============================
+\begin{tikzpicture}[remember picture,overlay]
+    \draw ([yshift=-15.7mm]current page.north) node[inner sep=0] (a) {
+        \includegraphics[width=\paperwidth]{resources/c3s_banner_top.png}
+    };
+    \draw ([yshift=-25.7mm]current page.north) node[inner sep=0] (a) {
+        \includegraphics[width=62.8mm]{resources/copernicus_logo_large.png}
+    };
+    \node[shift={(0 mm, -10mm)}]  at (current page.north){
+        {\fontsize{8}{9.6}\selectfont \color{white} ECMWF COPERNICUS REPORT }\\
+    };
+\end{tikzpicture}
+% ==============================
+% top maroon bar
+% ==============================
+\begin{tikzpicture}[remember picture,overlay]
+    \draw ([yshift=-53.3 mm]current page.north) node[inner sep=0] (a) {
+        \includegraphics[width=\paperwidth]{resources/header_bar.png}
+    };
+    \draw (17.75,-0.23) node {
+        \includegraphics{resources/logo_thermometer.png}
+    };
+    \node at (2.5,-0.35)   {
+        {\fontsize{12}{14.4} \fontspec{Verdana} \selectfont \color{white} Copernicus Climate Change Service}
+    };
+    %\draw[style=help lines] (-2.5,0) grid (30,10);
+\end{tikzpicture}
+% ==============================
+% Document title: Common Data Model for in situ observations
+% Contract / Lot title: C3S311a Lot 2: Global Land and Marine Observations database
+% Issued by: NUIM / Peter Thorne
+% Date: DD/MM/YYYY
+% C3S_D311a_Lot2.2.1.1_201708_CDM_Definition_v1
+% ==============================
+\vskip 4cm
+\begin{adjustwidth}{2.5cm}{}
+    \fontsize{22}{26}\selectfont{
+        \textbf{Copernicus Climate Change Service Global Land and Marine Observations Database}\\ 
+    }
+    \\ % Extra space between titles 
+    \fontsize{22}{26}\selectfont{
+        \textbf{ Fifth version marine data user guide }\\
+    }
+    \vskip 5cm
+    \fontsize{12}{14}\selectfont{
+        \textbf{Issued by:} NUIM / Peter Thorne\\
+        \textbf{Date:} 28/02/2021\\
+        \textbf{Ref:} C3S\_D311a\_Lot2.3.4.4\_2021\_202102\_Fifth\_version\_Marine\_User\_Guide\_v1\\
+        \textbf{Official reference number service contract:} 2017/C3S\_311a\_Lot2\_NUIM/SC2\\
+    }
+\end{adjustwidth}
+% ==============================
+%footer bar
+% ==============================
+\begin{tikzpicture}[remember picture,overlay]
+    \draw ([yshift=15. mm]current page.south) node[inner sep=0] (a) {
+        \includegraphics[width=\paperwidth]{resources/footer_bar.png}
+    };
+    \draw ([yshift=10.5 mm]current page.south) node[inner sep=0] (a) {
+        \includegraphics{resources/copernicus_logo.png}
+    };
+    \draw ([xshift=-30 mm, yshift=10.5 mm]current page.south east) node[inner sep=0] (a) {
+        \includegraphics{resources/ECMWF_logo.png}
+    };
+    \draw ([xshift=30 mm, yshift=10.5 mm]current page.south west) node[inner sep=0] (a) {
+        \includegraphics{resources/ec_logo_small.png}
+    };
+\end{tikzpicture}

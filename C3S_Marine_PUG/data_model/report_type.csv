@@ -1,0 +1,8 @@
+Report type;Abbreviation;Description
+0;Sub daily;Observing frequency < 1 day, typically one of hourly, 3 hourly, 6 hourly.
+;1;Radiosonde;Radiosonde profile
+;2;Monthly;Monthly summary statistics
+;3;Daily;Daily summary statistics
+;4;METAR;Meteorological aerodrome report
+;5;Monthly radiosonde;Monthly radiosonde profile summary
+;6;Radiosonde difference;Difference between (quasi-)coincident / multi-rig radiosonde instruments
