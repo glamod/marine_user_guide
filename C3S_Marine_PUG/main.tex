@@ -8,7 +8,7 @@
 % Set document root
 % !TEX root = /Users/dyb/GitHub/user_guide/C3S_Marine_PUG/main.tex
 % ======================================
-\documentclass[a4paper,12pt,hidelinks]{article}
+\documentclass[a4paper,12pt,hidelinks,oneside]{report}
 \usepackage[top=4.5 cm,bottom=2.54cm, lmargin=2cm, rmargin=1.74cm, headheight=3.25cm]{geometry}
 \usepackage{subfiles}
 \usepackage{enumitem}
@@ -16,6 +16,9 @@
 % \usepackage{hyperref}
 \usepackage{placeins}
 \usepackage{csvsimple}
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{longtable}
+\usepackage{booktabs}
 % ======================================
 % packages use for C3S styling
 % ======================================
@@ -29,6 +32,7 @@
 \usepackage{changepage}
 \usepackage{pdfpages}
 \usepackage{multirow,tabularx}
+\usepackage{tocloft}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage[hyphenbreaks]{breakurl}
 % ======================================
@@ -37,11 +41,14 @@
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
 % ======================================
-
-
-
 % C3S layout and style
 % ======================================
+\renewcommand{\partname}{}
+\renewcommand{\thepart}{}
+\renewcommand{\chaptername}{}
+\renewcommand{\thechapter}{}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \newcommand{\code}[1]{\texttt{#1}} % cf attributes, variables etc
 % set fonts to use
 \setmainfont{Calibri}
@@ -98,7 +105,8 @@
 \subfile{sections/cover_page.tex}
 \newpage\subfile{sections/front_matter.tex}
 \newpage\subfile{sections/contributors.tex}
-\newpage\tableofcontents
+\renewcommand{\contentsname}{\color{maroon}{Contents}}
+\newpage\tableofcontents\thispagestyle{fancy}
 \newpage\subfile{sections/change_log.tex}
 
 % ======================================
@@ -106,17 +114,27 @@
 % ======================================
 %\newpage\subfile{sections/related_docs.tex}
 %\newpage\subfile{sections/summary.tex}
-\newpage\subfile{sections/quick_start.tex}
-\newpage\subfile{sections/data_sources.tex}
-\newpage\subfile{sections/quality_control.tex}
-\newpage\subfile{sections/data_access.tex}
-\newpage\subfile{sections/data_model.tex}
-\newpage\subfile{sections/licensing.tex}
+\clearpage\part{Quick start}
+\subfile{sections/quick_start.tex}
+\clearpage\part{Detailed description}
+\subfile{sections/data_sources.tex}
+\FloatBarrier\subfile{sections/quality_control.tex}
+\clearpage\subfile{sections/data_access.tex}
+\clearpage\subfile{sections/data_model.tex}
+\clearpage\subfile{sections/licensing.tex}
 % \newpage\subfile{sections/maturity.tex}
 % ======================================
 % bibliography
 % ======================================
-\bibliography{bibliography/references}
+ % no new page for references
+\FloatBarrier
+\phantomsection
+\let\Origclearpage\clearpage
+\let\clearpage\relax
+% color and name of references heading
+\renewcommand\bibname{\color{maroon}References}
+% now the references
+\bibliography{bibliography/references}%\thispagestyle{fancy}
 % ======================================
 % End of Content
 % ======================================

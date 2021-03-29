@@ -38,7 +38,7 @@ Error attachment & Error & Attachment designed to support the correction of erro
 %\end{center}
 \end{table}
 
-
+\FloatBarrier
 \subsection{Station/platform identification (ship only)}
 The station / platform identification within ICOADS is stored in the ID field and over the lifetime of the marine meteorological observations and archives a wide variety of formats have been used to identify individual ships. 
 For example, in the early punchcard decks from the 1960s and earlier, ships were assigned a numeric identifier allocated in alphabetical order each year with the ship names written on the back of the punchcard. Lists matching the ship numbers to ship names were created and archived. 
@@ -50,7 +50,7 @@ For realtime data sources we typically have the ITU callsign or a masked/generic
 Overall, there are many sources of error and ambiguity in the station / platform identification field.
 These issues are discussed further in \cite{Carella2017_tracking} and we follow the method of \cite{Carella2017_tracking} to link observations from the same ship together.
 As part of this process the ID field has been corrected for known errors and new ids assigned where the ID field is missing, a generic ID assigned or set to a logbook and page number.
-
+\FloatBarrier
 \subsection{Duplicate detection and flagging (ship only)} \label{ship-dupelim}
 Duplicates exist in ICOADS due to the way that the dataset has been created over many decades with data from many different sources, often with overlapping observations, merged. 
 For example, many national climate archives such as those in the US, UK, Germany and Netherlands were based on the same source data with the ship logbooks digitised once and then shared between nations. 
@@ -70,9 +70,9 @@ As such, due to those differences not all duplicates have been identified by the
 
 Within the C3S service an additional level of duplicate detection has been performed making allowances for these known issues.
 In many cases the results are similar to that of DUPELIM but with an increase of up to 5 - 10 \% in the number of duplicates identified in some periods.
-The method and results are fully described in \cite{Kent2019dup}, table \ref{tab:dup_flags} lists the categorisations used.
+The method and results are fully described in \cite{Kent2019dup}, Table \ref{tab:dup_flags} lists the categorisations used.
 
-\begin{table}
+\begin{table}[h]
 \centering
 \caption{Duplicate flags and meanings used within the common data model (see Section )}
 \label{tab:dup_flags}
@@ -90,7 +90,7 @@ The method and results are fully described in \cite{Kent2019dup}, table \ref{tab
 %\end{center}
 \end{table}
 
-
+\FloatBarrier
 \subsection{Drifting buoy identification and duplicate flagging}\label{buoy-dupelim}
 Due to the different data management practices and data streams for the drifting buoy data compared to ships many of the issues present in the ship data are avoided. 
 The prevalence of mis-coding errors in the date, time, location and buoy ID fields is thought to be negligible.
@@ -98,7 +98,7 @@ As such, within the C3S service we make use of the ICOADS intermediate reject fl
 Drifting buoy reports with IRF set to \texttt{retain} have their report quality flag within the common data model set to 0 (pass).
 All other buoy reports have their report quality flag set to 1 (failed). 
 In all cases, the duplicate flag is set to 4 (unchecked).
-
+\FloatBarrier
 \subsection{Advanced quality control}
 Once the observations have been through the initial format checks, station / platform identification and duplicate flagging three additional stages of quality control are performed. 
 These are based on a scheme developed by the UK Met Office and described in \cite{Kennedy2017} and repeated here for completeness.
@@ -106,21 +106,21 @@ Prior to proceeding to the advanced quality control some pre-screening is perfor
 For a ship based report to proceed to the advanced quality control stage it needs to have been flagged as either the best duplicate or a unique report (section \ref{ship-dupelim}).
 For a buoy based report to proceed it needs to have been flagged for retention by the ICOADS IRF flag and initially marked as passing the report quality check (section \ref{buoy-dupelim}).
 All other observations have their report and observation quality flags set to unchecked. No additional quality control data will be generated for these reports.
-
+\FloatBarrier
 \subsubsection{Report level quality control} \label{report-qc}
 The report level quality control checks are similar to those performed as part of the verification of input data (section \ref{format-check}).
 Three different flags are set based on the validity of the date, time and location of a report. 1 indicates a fail and 0 a pass.
 In addition to these checks the station / platform identifier is checked against a list of those stations known to produce low quality data (see Table \ref{tab:blacklist}). 
 Observations with a station / platform identifier matching one on the list have their black list flag set to 1. All others are set to zero.
 The flags are:
-\begin{enumerate}
+\begin{itemize}
 \item \texttt{Time check}: Check whether time of observation is valid (0 $\leq$ hour $\leq$ 24). 1 returned for invalid or missing times, 0 otherwise.
 \item \texttt{Date check}: Check whether date is valid and in the range 1850 to 2024. 1 returned for invalid dates or dates outside the specified range, 0 otherwise.
-\item \texttt{Location check}: Check whether location (latitude and longitude) is valid. 1 returned for latitude outside the range 90 S to 90 or for longitude outside the range 180W to 360E. 1 also returned for missing data, 0 returned in all other cases.
+\item \texttt{Location check}: Check whether location (latitude and longitude) is valid. 1 returned for latitude outside the range 90°S to 90°N or for longitude outside the range 180°W to 360°E. 1 also returned for missing data, 0 returned in all other cases.
 \item \texttt{Blacklist}: Flag set to 1 for any observation matching a condition listed in table \ref{tab:blacklist}, 0 otherwise.
-\end{enumerate}
+\end{itemize}
 
-\begin{table}
+\begin{table}[h]
 \centering
 \caption{Conditions for blacklisting}
 \label{tab:blacklist}
@@ -129,11 +129,11 @@ The flags are:
 \hline
 \bfseries Condition & \bfseries Reason / details \\
 \hline
-Report at 0°N, 0°E & Often when the location is missing the latitude and longitude are set to 0.\\\hline
+Report at 0°N, 0°E & Often when the location is missing the latitude and longitude are set to 0°.\\\hline
 ICOADS platform type 13 & Data from C-MAN coastal station. Data not representative of the open ocean.\\\hline
 Data from the ICOADS SEAS deck (deck 874)& There was an unrecoverable error in the encoding of data from this source into IMMA.\\\hline
 Mis-calibrated buoys & Data from buoys 52521, 53522, 53566-68, 53571, 53578, 53580, 53582, 53591-96, 53599, 53600-09, 53901, 53902 are known to have calibration errors during the period November 2005 to January 2006.\\\hline
-Mis-positioned MORMET data (deck 732) & Observations from the Russian Marine Meteorological Dataset (MORMET) are known to be mis-positioned in certain regions and time periods. These are listed in table \ref{tab:mormet}.\\\hline
+Mis-positioned MORMET data (deck 732) & Observations from the Russian Marine Meteorological Dataset (MORMET) are known to be mis-positioned in certain regions and time periods. These are listed in Table \ref{tab:mormet}.\\\hline
 \end{tabular}
 %\end{center}
 \end{table}
@@ -169,21 +169,22 @@ Mis-positioned MORMET data (deck 732) & Observations from the Russian Marine Met
 %\end{center}
 \end{table}
 
-
+\FloatBarrier
 \subsubsection{Observation level quality control} \label{obs-qc}
 
-\begin{enumerate}[resume]
+\begin{itemize}[resume]
 \item \texttt{No value check}: checks for the presence of missing data. Returns 1 for missing data, 0 otherwise.
 \item \texttt{No normal check}: checks for the availability of a climatological value at the date and position of the observation. Returns 1 if no climatology is available, 0 otherwise.
 \item \texttt{Climatology check}: checks the magnitude of anomalies against a predefined range. Returns 1 for values outside the range, 0 otherwise,
 \item \texttt{Freezing value check}: Sea surface temperature only, checks whether the temperature is below the approximate freezing point of water (-1.8°C). Set to 1 for temperatures below -1.8°C, 0 otherwise. 
 \item \texttt{Super-saturation check}: Dew point temperature only, checks whether the dew point temperature is greater than the air temperature. Returns 1 on dew point temperature, 0 otherwise.
-\end{enumerate}
+\end{itemize}
 
+\FloatBarrier
 \subsubsection{Along track / voyage level quality control} \label{track-qc}
 Only stations / platforms with a non-generic identifier are subject to the along track quality control. The checks are performed on 1 month of data at a time but include the data for the preceding and following months for a number of the checks. All checks are applied to time ordered data, full details are provided in \cite{Kennedy2017}.
 
-\begin{enumerate}[resume]
+\begin{itemize}[resume]
 \item \texttt{Speed check}: Checks the speed required to get to the observation location forwards and backwards in time. Returns 1 if check fails, 0 otherwise.
 \item \texttt{Distance from estimated location}: Calculates the expected position of the current observation by extrapolating forward and backward in time from the last and next observation and reported speed and course. If the distance between both the forward and backward extrapolated location and reported location is greater than threshold return 1, 0 otherwise.
 \item \texttt{Direction consistency}: Calculates the course between location of current and prior observation and compares to reported course. If difference between reported course and calculate course > 60° returns 1, 0 otherwise.
@@ -197,8 +198,9 @@ Only stations / platforms with a non-generic identifier are subject to the along
 \item \texttt{Fewsome check}: Returns 1 if 3 or fewer observations from an ID, 0 otherwise.
 \item \texttt{IQUAM track check}: Track check as described by \cite{Xu2014} but only using the 5 observations immediately preceding and following the observation being checked. 
 \item \texttt{IQUAM spike check}: Spike check as described by \cite{Xu2014} but only using the 5 observations immediately preceding and following the observation being checked. 
-\end{enumerate}
+\end{itemize}
 
+\FloatBarrier
 \subsubsection{Buddy check}
 The final check applied to the observations is the buddy check.  
 All observations of a given parameter passing the previously described checks are converted to anomalies by subtraction of the climatological value and averaged onto a 1 by 1 degree 5 day grid. 
@@ -208,11 +210,11 @@ If no grid boxes are found the search area is increased in size, doubling the sp
 If still no grid boxes are found the temporal search radius is then doubled.
 Once neighbouring grid boxes have been identified the arithmetic mean anomaly of all the neighbouring grid boxes is calculated and an acceptable anomaly range determined based on the number of neighbouring grid boxes(\mu).
 The anomaly for each observation in the target grid box is compared to the acceptable range, any observation outside of the range has its buddy flag set to 1 (fail) and 0 otherwise.
-\begin{enumerate}[resume]
+\begin{itemize}[resume]
 \item \texttt{Buddy check}: Anomaly for observation compared to mean anomaly for neighbouring grid boxes. 1 returned if anomaly outside of specified range (Table \ref{tab:buddy_check}), 0 otherwise.
-\end{enumerate}
+\end{itemize}
 
-\begin{table}
+\begin{table}[h]
 \centering
 \caption{Limits for buddy checks}
 \label{tab:buddy_check}
@@ -235,7 +237,8 @@ Search area & Number of neighbouring grid boxes & Range \\
 %\end{center}
 \end{table}
 
-\subsection{Report and Observation Quality Flags}
+\FloatBarrier
+\subsection{Report and Observation Quality Flags}\label{aggregate_qc}
 To aid the user in selecting data the flags described above have been summarised in two simple flags.
 The first indicates the overall quality of the weather report.
 The second indicates the quality of the individual observations.
@@ -244,10 +247,32 @@ If a QC flag is raised for any of the observation level checks described above t
 Similarly, if a flag is raised for any of the report level or track level checks the report quality is marked as failing.
 Additionally, if a report passes all of the relevant report level checks but has no passing observations then it is marked as failing.
 
- 
+% =========================
+% Quality flag
+% =========================
+\begin{table}
+\caption{Quality flag}
+\label{tab:qc_flag_main}
+\begin{center}
+\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
+\hline 
+\bfseries Quality flag & \bfseries Description
+\csvreader[
+    head to column names=false,
+    column names={Quality flag=\flag, Description=\desc}, 
+    separator=semicolon]{./data_model/quality_flag.csv}{}
+{\\\hline\flag & \desc}
+\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\FloatBarrier 
 \subsection{Impact of quality control}
 Figure \ref{fig:dup_status} shows the outcome of the duplicate flagging. 
 Prior to \sim 1950 the majority of data observations are unique but with a small number flagged as either a best duplicate or worst duplicate.
+There are a very small number where it has not been able to differentiate between best and worst duplicates. 
+In these cases, both observations are marked as duplicates with no qualification as best or worst.
 The impact of wide spread data sharing can be seen in the 1950s and early 1960s with a significant number of best and worst duplicates. 
 Between 1965 and the late 1970s the number of duplicates decreases again.
 After 1980 there is an increasing number of unchecked reports due to the rise in drifting buoy numbers, with a sharp increase around 2000.

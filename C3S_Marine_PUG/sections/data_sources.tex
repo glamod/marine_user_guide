@@ -1,4 +1,3 @@
-\newpage
 \section{Data and metadata sources}\label{data_sources}
 \subsection{Observations}
 \subsubsection{The International Comprehensive Ocean-Atmosphere Data Set}
@@ -39,14 +38,15 @@ The original source of the data is recorded in ICOADS with the data accessions i
 A summary of the data accessions is given in the marine inventory (C3S\_D311a\_Lot2.1.1.1\_201708\_ Preliminary\_Marine\_Inventory\_v1) available from the CDS website.
 
 \subsection{Selection of data for inclusion in Service}
-As part of the development of this service the input sources and decks contributing observations to ICOADS have been prioritised and reprocessed based on the volume observations, spatial / temporal coverage and availability of ECVs. 
+As part of the development of this service the input sources and decks contributing observations to ICOADS have been prioritised and reprocessed based on the volume of observations, spatial / temporal coverage and availability of ECVs. 
 Release 1 focussed on the post World War II period (1951 - 2010) and included observations from drifting buoys (sea surface temperature and sea level pressure) and Voluntary Observing Ships (VOS) (air temperature, dew point temperature, wind speed and direction, sea level pressure and sea surface temperature).
 As part of the first release VOS observations were merged with instrumental metadata from WMO Publication Number 47 (e.g.\cite{Kent2007}) to provide information on observing heights, instrument types / observing methods and information on the vessels contributing the observations. 
 Release 2 sought to extend the record backwards to 1851, including all available ship observations prior to 1951. 
 Release 3, the release described in this user guide, has updated the record to the end of 2014. 
+
 Figure \ref{fig:nreports-ts} shows the monthly number of reports available across the releases and split by platform type. 
-Only those passing the full quality control check are shown, in total 337918079 reports from 239 sources have been released across the 3 releases.
-Of these 259237504 are unique and pass the report quality control checks (see Section \ref{processing}), the remainder either fail the duplicate check or one of the report QC checks.
+Only those passing the full quality control check are shown, in total 337,918,079 reports from 239 sources have been released across the 3 releases.
+Of these 259,237,504 are unique and pass the report quality control checks (see Section \ref{processing}), the remainder either fail the duplicate check or the aggregate report level QC check (see Section \ref{aggregate_qc}).
 Figure \ref{fig:nreports-map} shows the spatial sampling by total number of reports and by number of months. 
 The total number of reports is dominated by the recent decades and the increase in buoy sampling (see Figure \ref{fig:nreports-hovmoller}). 
 The contribution to the ship based reports can be seen in the number of months available, with the ship tracks clearly visible.
@@ -55,13 +55,15 @@ Several notable sources and platform types have been excluded.
 Namely, fixed stations (mobile installations and rigs, coastal stations and moored buoys), meteorological observations from research vessels, and meteorological observations from oceanographic programmes and datasets such as the World Ocean Database and the Global Ocean Surface Underway Data. 
 These additional sources will be included in Release 4, due June 2021.
 
-\begin{figure} 
-    \includegraphics{resources/nreports-ts.png}
+\begin{figure} [h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{resources/nreports-ts.png}
     \caption{Monthly number of marine in situ reports. The stacked areas indicate the monthly number of ship reports (grey) and drifting buoy reports (yellow). Only reports that have passed all the quality control checks are included. Time series have been smoothed using a 12-month running mean filter. Note the logarithmic scale in the y axis.}
     \label{fig:nreports-ts}
 \end{figure}
 
-\begin{figure}
+\begin{figure} [h]
+    \centering
     \includegraphics{resources/header-reports-map-optimal.png}
     \includegraphics{resources/header-months-map-optimal.png}
     \caption{Spatio-temporal distribution of marine data holdings 1851 - 2014. Left: number of reports per grid cell; right: number of months with at least 1 report. Grid size is 1x1. Note logarithmic colour scale. Only reports passing the report level QC checks flag have been included.}
@@ -69,6 +71,7 @@ These additional sources will be included in Release 4, due June 2021.
 \end{figure}
 
 \begin{figure}
+    \centering
     \includegraphics{resources/header-nreports_hovmoller_monthly}
     \caption{Spatio-temporal distribution of marine reports: latitude-time (Hovmøller) plots of number of reports. Data is binned and aggregated in 1° latitude × 1 month boxes. Only reports passing the report level QC checks have been included.}
     \label{fig:nreports-hovmoller}
@@ -83,18 +86,21 @@ This includes information on the ship dimensions and types, type(s) of instrumen
 A subset of the metadata from WMO Publication No. 47 has been included in ICOADS since Release 2.5 based on a basic match between the reports in ICOADS and the WMO Publication 47 edition coincident with the observation (\cite{Kent2007}, \cite{Woodruff2011}.
 
 As part of C3S 311a Lot 2 the WMO Publication 47 metadata has been reprocessed and selected fields, primarily ship names and instrument heights, have been included in this release. 
-The full set of metadata are planned to be included in the next release once the climate data store fully supports full the common data model. 
+The full set of metadata are planned to be included in subsequent releases, as soon as the CDS can support the full common data model. 
 As part of the reprocessing duplicate records have been combined, reducing the number of records from around 514 000 to 117 000 over the period 1956 - 2014. 
 Validity dates have been added, with the first record for a given ship extended by 1 year prior to its first appearance and the final record extended by 5 years. 
 This allows for a period of time between a ship being recruited and it first appearing in WMO Publication No. 47 and a period where a ship continues reporting but is no longer registered by the original recruiting country. 
-Limited quality control (QC) has been applied to the data, with correction of typographical errors and standardisation of entries. 
+Limited quality control has been applied to the data, with correction of typographical errors and standardisation of entries. 
 Similarly, heights have been corrected for known errors, such as incorrect packing of numeric data into alpha-numeric representation (e.g. i5 keyed instead of 15). 
 
 
 \FloatBarrier
 \subsection{Observing methods, coverage and known issues}
 \subsubsection{Air temperature and humidity}
-Air temperature and humidity measurements made on board ships have traditionally been made using liquid (mercury or alcohol) in glass thermometers (wet and dry bulb) sheltered from direct solar radiation, rain and sea spray and housed either in a fixed shelter or in a hand-held instrument. 
+Figure \ref{fig:at-map} shows nominal values of the mean air temperature and dew point temperature over the period 1851 - 2014. 
+Figure \ref{fig:at-nmonths-map} shows the number of months with at least 1 observation on a 1x1 grid. 
+The clustering over the major shipping routes is clearly visible.
+The air temperature and humidity measurements made on board ships have traditionally been made using liquid (mercury or alcohol) in glass thermometers (wet and dry bulb) sheltered from direct solar radiation, rain and sea spray and housed either in a fixed shelter or in a hand-held instrument. 
 However, due to the need for the thermometers to be accessible the location of the thermometers is often not ideal, with the shelters sometimes located in poorly exposed locations and with inadequate ventilation.
 This can lead to biases in humidity measurements due to inadequate ventilation of the wet bulb thermometers (e.g. \cite{Berry2011}; \cite{Willett2008}). 
 Similarly, daytime air temperature measurements can contain biases due to the warming of the ship superstructure by solar radiation, in turn warming the air and giving biased air temperature measurements (\cite{Rayner2003}). 
@@ -102,31 +108,32 @@ Bias adjustments have been developed to account for these effects (e.g. \cite{Be
 Pervasive biases have not been identified in the night time air temperature measurements or artificially ventilated wet bulb thermometers measurements during the period 1900 – 2014.
 However, biases have been identified in the 19th Century and earlier data due to the use of thermometers located in the captains cabin (e.g. \cite{Chenoweth2000}).
 
-In addition to physical biases, the height at which the observations are made has changed substantially over the period, ranging from \sim 4 - 5m in the late 1800s, increasing to ~ 30m in the late 2000s (\cite{Kent2007}, \cite{ Kent2013NMAT}). 
-Adjustments to a fixed reference height are required to avoid inhomogeneities in the record and leading to underestimation of trends in the data. 
-Adjustments are typically made based on Monin-Obukhov similarity theory and the approximation of a constant flux layer near the surface (e.g. \cite{Businger1971}). 
-Observing heights are included with the observations where known but adjustments have not been made as part of this service.
-
-Figure \ref{fig:at-map} shows nominal values of the mean air temperature and dew point temperature over the period 1851 - 2014. Figure \ref{fig:at-nmonths-map} shows the number of months with at least 1 observation on a 1x1 grid.
-
 % Figures for air temperature and humidity
-\begin{figure}
+\begin{figure}[h]
+    \centering
     \includegraphics{resources/observations-at-mean-map-optimal.png}
     \includegraphics{resources/observations-dpt-mean-map-optimal.png}
     \caption{Mean air temperature (left) and dew point temperature (right) over the period 1851 - 2014. All observations passing quality control have been averaged to give monthly mean values. These have then been averaged to give the longterm mean.}
     \label{fig:at-map}
 \end{figure}
 
-\begin{figure}
+In addition to physical biases, the height at which the observations are made has changed substantially over the period, ranging from \sim 4 - 5m in the late 1800s, increasing to \sim 30m in the late 2000s (\cite{Kent2007}, \cite{ Kent2013NMAT}). 
+Adjustments to a fixed reference height are required to avoid inhomogeneities in the record and leading to underestimation of trends in the data. 
+Adjustments are typically made based on Monin-Obukhov similarity theory and the approximation of a constant flux layer near the surface (e.g. \cite{Businger1971}). 
+Observing heights are included with the observations where known but adjustments have not been made as part of this service.
+
+\begin{figure}[h]
+    \centering
     \includegraphics{resources/observations-at-months-map-optimal.png}
     \includegraphics{resources/observations-dpt-months-map-optimal.png}
     \caption{Number of months with at least one observation of air temperature (left) or humidity (right) over the period 1851 - 2014 on a 1x1 grid. Only observations passing quality control have been included}
     \label{fig:at-nmonths-map}
 \end{figure}
 
-
 \FloatBarrier
 \subsubsection{Sea surface temperature}
+Figure \ref{fig:sst-map} shows nominal values of the mean sea surface temperature over the period 1851 - 2014 (left) and the number of months with at least 1 observation on a 1x1 grid (right).
+The clustering over the major shipping routes is clearly visible but with better sampling away from the shipping lanes due to the sampling by drifting buoys.
 Sea surface temperature observations have been historically made using a wide variety of methods, ranging from wooden, canvas and rubber buckets to infrared radiometers. 
 The most common methods are the bucket based and engine intake methods, both of which suffer from biases (\cite{Kent2017}). 
 Due to evaporative and conductive cooling the water samples in the buckets can be biased low compared to the true sea surface temperature. 
@@ -134,17 +141,31 @@ Conversely, due to heat from the engine room, engine intake measurements can be 
 Bias adjustments have been developed and implemented when constructing gridded datasets from the observations (\cite{Kennedy2011_part2}). 
 The quality of SST observations has been widely discussed (e.g. \cite{Kennedy2014}, \cite{Kent2017}).
 As with the other parameters, no adjustments have been made to the observations to account for known biases.
+
 \begin{figure}[h]
     \includegraphics{resources/observations-sst-mean-map-optimal.png}
     \includegraphics{resources/observations-sst-months-map-optimal.png}
     \caption{Mean sea surface temperature (left) and number of months with at least one observation (right) over the period 1851 - 2014. All observations passing quality control have been averaged to give monthly mean values. These have then been averaged to give the longterm mean.}
+    \label{fig:sst-map}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Wind speed and direction}
+Figure \ref{fig:wspd-map} shows nominal values of the mean wind speed and direction over the period 1851 - 2014. 
+Figure \ref{fig:wspd-nmonths-map} shows the number of months with at least 1 observation on a 1x1 grid. 
+As with the other parameters, the clustering over the major shipping routes is clearly visible. 
 Wind speed observations made on board ships were historically made by estimating the wind force and recording the estimate using the Beaufort scale. 
 This provides estimates of the upper, lower and mid-point wind speeds for each value on the scale at a reference height of 10 m. 
 When Beaufort scale wind estimates have been converted to a speed the mid-point has typically been used. 
 More recently, the visually estimated wind speeds have been estimated as a speed (e.g. knots or m/s) using the Beaufort scale as a guide. 
+
+\begin{figure}[h]
+    \includegraphics{resources/observations-ws-mean-map-optimal.png}
+    \includegraphics{resources/observations-wd-mean-map-optimal.png}
+    \caption{Mean wind speed (left) and direction (right) over the period 1851 - 2014. All observations passing quality control have been averaged to give monthly mean values. These have then been averaged to give the longterm mean.}
+    \label{fig:wspd-map}
+\end{figure}
+
 Through comparison with instrumental measurements and co-located observations the original Beaufort scale has been shown to be biased and corrections proposed (\cite{Kent1997}).
 Over the past several decades there has been an increasing move to using anemometers to observe and report the wind speed over the oceans. 
 These measurements can contain biases due to the impact of flow distortion on the wind speed (\cite{Moat2005}).
@@ -152,19 +173,31 @@ As with the air temperature and humidity, the typical height of wind speed measu
 Again, no adjustments have been made as part of this service.
 
 \begin{figure}[h]
-    \includegraphics{resources/observations-ws-mean-map-optimal.png}
-    \includegraphics{resources/observations-wd-mean-map-optimal.png}
-    \caption{Mean wind speed (left) and direction (right) over the period 1851 - 2014. All observations passing quality control have been averaged to give monthly mean values. These have then been averaged to give the longterm mean.}
+    \centering
+    \includegraphics{resources/observations-ws-months-map-optimal.png}
+    \includegraphics{resources/observations-wd-months-map-optimal.png}
+    \caption{Number of months with at least one observation of wind speed (left) or wind direction (right) over the period 1851 - 2014 on a 1x1 grid. Only observations passing quality control have been included}
+    \label{fig:wspd-nmonths-map}
 \end{figure}
 
+\FloatBarrier
 \subsubsection{Sea level pressure}
+
+Figure \ref{fig:slp-map} shows nominal values of the mean sea level pressure over the period 1851 - 2014 (left) and the number of months with at least 1 observation on a 1x1 grid (right).
+The clustering over the major shipping routes is clearly visible and, as with the sea surface temperature, better sampling away from the shipping lanes due to the sampling by drifting buoys can be seen.
+
 Early pressure observations were typically made using mercury barometers, with a transition to marine aneroid barometers in the mid 20th century and to electronic instruments more recently. 
 The different sensors each have corrections that need to be applied but these are typically applied either at the time of reporting or automatically prior to the values being read in the case of the electronic sensors. 
 The mercury and aneroid barometers require correction for temperature and height above sea level, with an additional adjustment for gravity required for the mercury barometers. 
 These corrections are believed to have been applied in the ICOADS data.
 When looking at long term means / climatological values the observations also need to be corrected for diurnal and semi-diurnal oscillations (e.g. Ansell et al. 2006).
-\begin{figure}
+
+
+
+\begin{figure}[h]
     \includegraphics{resources/observations-slp-mean-map-optimal.png}
     \includegraphics{resources/observations-slp-months-map-optimal.png}    
     \caption{Mean sea level pressure over the period 1851 - 2014. All observations passing quality control have been averaged to give monthly mean values. These have then been averaged to give the longterm mean.}
+    \label{fig:slp-map}
 \end{figure}
+\FloatBarrier

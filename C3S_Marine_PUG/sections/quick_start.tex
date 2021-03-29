@@ -37,10 +37,10 @@ Later observations were typically recorded and shared with precisions of tenths 
 As part of the processing to create ICOADS (and earlier datasets) the observations were converted to standardised units (°C for temperatures, hPa for pressure and m/s for speeds) and uniform resolution, typically to one or two decimal places.
 These have been further processed as part of the GLAMOD service and fully converted to S.I. units.
 Where recorded, the originally reported value and units will be made available.
-
 There are known issues with the marine meteorological observations, these are discussed further in Section \ref{data_sources}.
 No corrections or adjustments have been applied as part of this service, instead the user is directed to the literature identified within Section \ref{data_sources}.
-\begin{table}
+
+\begin{table}[h]
 \centering
 \caption{Essential Climate Variables included in the GLAMOD service}
 \label{tab:ecvs}
@@ -108,7 +108,7 @@ Sea level pressure and sea surface temperature experience a much smaller marked 
 \label{fig:nreports-map1}
 \end{figure}
 
-
+\newpage
 \subsection{Data access}
 The data can be downloaded and accessed via the Copernicus Climate Change Service (C3S) Climate Data Store (CDS) Date:
 \begin{center}
@@ -122,7 +122,8 @@ Data can additionally be downloaded using the CDS Python API. Selecting the \tex
 \url{https://cds.climate.copernicus.eu/api-how-to}
 \end{center}
 
-\begin{figure}
+\FloatBarrier
+\begin{figure}[h]
 \centering
 %\begin{center}
 \includegraphics[width=0.75\textwidth]{resources/cds_variable_select.png}
@@ -186,6 +187,7 @@ Data can additionally be downloaded using the CDS Python API. Selecting the \tex
 %\end{center}
 \end{figure}
 
+\FloatBarrier
 \subsection{Data model}
 Data from the Climate Data Store are returned in delimited text files (.csv), with 19 columns per row and one observed value per row. 
 The columns are listed in table \ref{tab:cdm_lite} together with a brief description.  
@@ -194,180 +196,16 @@ All data are returned in the UTC time zone.
 The location of the observation is given by the \code{latitude} and \code{longitude} columns in the WGS84 / EPSG4326 coordinate reference system. 
 The variable being reported / observed is given by the \code{observed\_variable} column, the units by the \code{units} column and the observed value by the \code{observation\_value} column. 
 The remaining columns provide further contextual information for the observations, such platform type and station identifiers etc. 
-A number of the columns are enumerated using code tables, indicated by the text \code{(coded)} in the Kind column of Table \ref{tab:cdm_lite}.
-These code tables are reproduced in tables \ref{tab:report_type} to \ref{tab:licence} but with only those values used in the marine data listed.
+%A number of the columns are enumerated using code tables, indicated by the text \code{(coded)} in the Kind column of Table \ref{tab:cdm_lite}.
+%These code tables are reproduced in tables \ref{tab:report_type} to \ref{tab:licence} but with only those values used in the marine data listed.
 
-\begin{table}
-\centering
-\caption{Data model}
-\label{tab:cdm_lite}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Field & \bfseries Kind & \bfseries Description
-\csvreader[head to column names, separator=semicolon]{./data_model/cdm_lite.csv}{}
-{\\\hline\Field & \Kind & \Description}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
-% =========================
-% Report type
-% =========================
-\begin{table}
-\centering
-\caption{Report type}
-\label{tab:report_type}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Report type & \bfseries Abbreviation & \bfseries Description
 \csvreader[
-    head to column names=false,
-    column names={Report type=\type, Abbreviation=\abbrev, Description=\desc}, 
-    separator=semicolon]{./data_model/report_type.csv}{}
-{\\\hline\type & \abbrev & \desc}
-\\\hline
-\end{tabular}
-% \end{center}
-\end{table}
-% =========================
-% Date / time meaning
-% =========================
-\begin{table}
-\centering
-\caption{Date / time meaning}
-\label{tab:timestamp_meaning}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Date / time meaning & \bfseries Name & \bfseries Description
-\csvreader[
-    head to column names=false,
-    column names={Date / time meaning=\licence, Name=\name, Description=\desc}, 
-    separator=semicolon]{./data_model/date_time_meaning.csv}{}
-{\\\hline\licence & \name & \desc}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
-% =========================
-% Value significance
-% =========================
-\begin{table}
-\centering
-\caption{Value significance}
-\label{tab:value_significance}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Value significance & \bfseries Description
-\csvreader[
-    head to column names=false,
-    column names={Value significance=\sig, Description=\desc}, 
-    separator=semicolon]{./data_model/value_significance.csv}{}
-{\\\hline\sig & \desc}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
-% =========================
-% Observation duration
-% =========================
-\begin{table}
-\centering
-\caption{Observation duration}
-\label{tab:duration}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Observation duration & \bfseries Description & \bfseries Period (seconds)
-\csvreader[
-    head to column names=false,
-    column names={Observation duration=\duration, Description=\desc, Period (seconds)=\period  }, 
-    separator=semicolon]{./data_model/observation_duration.csv}{}
-{\\\hline\duration & \desc & \period}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
-% =========================
-% Platform type
-% =========================
- \begin{table}
- \centering
-\caption{Platform type}
-\label{tab:platform_type}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Platform type & \bfseries Description
-\csvreader[
-    head to column names=false,
-    column names={Platform type=\type, Description=\desc}, 
-    separator=semicolon]{./data_model/platform_type.csv}{}
-{\\\hline\type & \desc}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
-% =========================
-% Station type
-% =========================
-\begin{table}
-\centering
-\caption{Station type}
-\label{tab:station_type}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Station type & \bfseries Description
-\csvreader[
-    head to column names=false,
-    column names={Station type=\type, Description=\desc}, 
-    separator=semicolon]{./data_model/station_type.csv}{}
-{\\\hline\type & \desc}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
-% =========================
-% Quality flag
-% =========================
-\begin{table}
-\centering
-\caption{Quality flag}
-\label{tab:qc_flag}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Quality flag & \bfseries Description
-\csvreader[
-    head to column names=false,
-    column names={Quality flag=\flag, Description=\desc}, 
-    separator=semicolon]{./data_model/quality_flag.csv}{}
-{\\\hline\flag & \desc}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
-% =========================
-% Data policy / licence
-% =========================
-\begin{table}
-\centering
-\caption{Data policy / licence}
-\label{tab:licence}
-%\begin{center}
-\begin{tabular}{|p{0.3\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|}
-\hline 
-\bfseries Data policy / licence & \bfseries Name & \bfseries Description
-\csvreader[
-    head to column names=false,
-    column names={Data policy / licence=\licence, Name=\name, Description=\desc}, 
-    separator=semicolon]{./data_model/data_policy_licence.csv}{}
-{\\\hline\licence & \name & \desc}
-\\\hline
-\end{tabular}
-%\end{center}
-\end{table}
+  longtable=|p{0.25\linewidth}|p{0.2\linewidth}|p{0.45\linewidth}|,
+  table head=\caption{Data model.\label{tab:cdm_lite}}\\
+    \hline\bfseries Field &\bfseries Kind &\bfseries Description \\ \hline\endfirsthead
+    \multicolumn{3}{c} {{\tablename\ \thetable{} -- continued from previous page}} \\ 
+    \hline\bfseries Field &\bfseries Kind &\bfseries Description \\ \hline\endhead
+    \hline\endfoot,    
+    separator=semicolon,
+    late after line=\\ \hline
+]{./data_model/cdm_lite.csv}{1=\Field,2=\Kind,3=\Description}{\Field & \Kind & \Description }
