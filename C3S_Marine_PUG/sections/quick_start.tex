@@ -18,7 +18,7 @@ Moored buoy data, with the exception of the tropical arrays, tend to be more coa
 Each meteorological report in ICOADS contains observations of multiple essential climate variables (ECVs, e.g. \cite{Bojinski2014}) made at the same time and location, for example coincident measurements of the air temperature, humidity, wind speed and direction, sea surface temperature and sea level pressure.
 From the mid 2000s the record is dominated by reports from drifting buoys but these only report a small subset of the ECVs included in this service, typically only sea level pressure or sea surface temperature. 
 The reporting frequency ranges from hourly or more frequent in the recent period to daily observations prior to \sim 1860. 
-In the intervening period observing frequency ranged from three times per day based on the watches on board ships to 3 or 6 hourly.
+In the intervening period observing frequency ranged from three times per day based on the watches on board ships to 3-hourly or 6-hourly observations.
 
 
 Several sources of metadata have been used, for the period after \sim 1982 metadata from WMO-No. 47, the "List of Selected, Supplementary and Auxilary Ships" (e.g. \cite{Kent2007}) has been merged with the ship observations.
@@ -61,7 +61,7 @@ Dew point temperature & Dew point temperature at observation height, usually the
 Sea surface temperature & Water temperature at the sea surface measured using a variety of methods. Typically bucket measurements pre 1950 but with a transition to engine intake measurements beginning around 1900. Dominated by drifting buoy observations after \sim 2003.\\
 \hline
 %Sea level pressure & Typically tenths hPa & Atmospheric pressure reduced to sea level and corrected for temperature where appropriate. Methods range from mercury barometers in the 19th Century, through aneroid barometers to electronic sensors.\\
-Sea level pressure & Atmospheric pressure reduced to sea level and corrected for temperature where appropriate. Methods range from mercury barometers in the 19th Century, through aneroid barometers to electronic sensors.\\
+Sea level pressure & Atmospheric pressure reduced to sea level and corrected for temperature where appropriate. Methods range from mercury barometers in the 19th Century, through aneroid barometers to electronic sensors. It should be noted that the sea level reduction and temperature corrections are applied at the time of observation.\\
 \hline
 %Wind speed & Beaufort Force, whole knots and m/s. Tenths units in recent periods& Wind speed at observation height. As with air temperature and dew point temperature the observation height has varied from < 10 m in the early record to more than 30 m for recent years. Methods include visual wind speed estimation for the early record transitioning to mechanical sensors (cup/propellor anemometers) and electronic sensors (sonic anemometers). Instrumental observations corrected for ship speed and course (not applicable for visual estimation).\\
 Wind speed & Wind speed at observation height. As with air temperature and dew point temperature, the observation height has varied from < 10 m in the early record to more than 30 m for recent years. Methods include visual wind speed estimation for the early record transitioning to mechanical sensors (cup/propellor anemometers) and electronic sensors (sonic anemometers). Instrumental observations corrected for ship speed and course (not applicable for visual estimation).\\
@@ -74,13 +74,14 @@ Wind Direction & See wind speed.\\
 \end{table}
 
 \subsection{Coverage}
-The temporal coverage of the data available in the current release spans the period 1851 - 2014, Figure \ref{fig:ecv_ts1} shows the coverage per ECV.
+The temporal coverage of the data available in the current release spans the period 1851 - 2020, Figure \ref{fig:ecv_ts1} shows the coverage per ECV. 
 Before the Brussels International Maritime Conference of 1853 the most common ECVs to be reported were: air temperature; wind speed / force and direction; and sea level pressure, with typically \sim 100 - 200 observations per month. 
 A small number of sea surface temperature and humidity observations are available (< 100).
 Following the Brussels conference there is a large increase in number of observations to O(10,000) per month for all parameters excluding dew point temperature. 
 Dew point observations only reach 10,000 per month on a routine basis around the time of the First World War.
 For all parameters, the number of observations increases over time to around 100,000 per month in the 1960s and remains at this level until the 1990s.
 From the mid 1990's there is a large increase in the number of sea level pressure and sea surface temperature observations from drifting buoys.
+The loss of the drifting buoys from ICOADS at the end of the record can be seen with a sharp drop in the number of sea surface temperature and sea level observations around 2014.
 
 \begin{figure}[h]
 \centering
@@ -91,20 +92,22 @@ From the mid 1990's there is a large increase in the number of sea level pressur
 %\end{center}
 \end{figure}
 
-Figure \ref{fig:nreports-map1} shows the total number of reports and total number of months per 1x1 degree grid cell, however over the period 1851 - 2014 there have been major changes to the spatial sampling.
+Figure \ref{fig:nreports-map1} shows the total number of reports and total number of months per 1x1 degree grid cell, however over the period 1851 - 2020 there have been major changes to the spatial sampling.
 Early in the record there were typically a few hundred 1x1 degree grid cells with data per month (see Figure \ref{fig:ecv_ts1}).
 These tended to be concentrated in the Atlantic Ocean and around the southern capes to the Indian and Pacific Oceans.
 With the opening of the Suez and then Panama canals the major shipping routes changed, with less shipping transiting the capes and a greater proportion transiting the Mediterranean and Caribbean seas to reach the Indian and Pacific oceans.
 Spatial coverage reached a peak between the 1960s and 1990s but declined sharply after 1990.
-The number of grid cells dropped from around 20,000 to around 10,000 - 12,000 by 2014 for the majority of parameters. 
+The number of grid cells dropped from around 20,000 to around 10,000 - 12,000 by 2020 for the majority of parameters. 
 The contrast between the stable number of observations and decreasing spatial coverage (contrasting red and black lines in Figure \ref{fig:ecv_ts1}) is due to the change in reporting frequency from 6 hourly to 3 or 1 hourly and greater over the past 30 years, increasing the temporal sampling at the cost of spatial sampling.
 Sea level pressure and sea surface temperature experience a much smaller marked decline in spatial coverage due to the contribution of drifting buoys.
+
+It should be noted that observations for the period 1784 - 1850 were also processed as part of this release but due to missing time information and the sparseness of the data neither the quality control nor duplicate detection software has been run for this period. These data are available by selecting the "all data" option when downloading but should be used with caution.
 
 
 \begin{figure}[h]
 \includegraphics{resources/header-reports-map-optimal.png}
 \includegraphics{resources/header-months-map-optimal.png}
-\caption{Spatio-temporal distribution of marine data holdings 1851 - 2014. Left: number of reports per grid cell; right: number of months with at least 1 report. Grid size is 1x1. Note logarithmic colour scale. Only reports passing the report level QC checks flag have been included.}
+\caption{Spatio-temporal distribution of marine data holdings 1851 - 2020. Left: number of reports per grid cell; right: number of months with at least 1 report. Grid size is 1x1. Note logarithmic colour scale. Only reports passing the report level QC checks flag have been included.}
 \label{fig:nreports-map1}
 \end{figure}
 
@@ -127,7 +130,7 @@ Data can additionally be downloaded using the CDS Python API. Selecting the \tex
 \centering
 %\begin{center}
 \includegraphics[width=0.75\textwidth]{resources/cds_variable_select.png}
-\caption{Selection box for variable selection on the Global Land And Marine Observations Database download page on the CDS.}
+\caption{Selection box for variable selection on the Global Land And Marine Observations Database download page on the CDS. It should be noted that "water temperature" is used in the data model to include river, lake and sea surface temperature.}
 \label{fig:cds_variable}
 %\end{center}
 \end{figure}
@@ -189,6 +192,7 @@ Data can additionally be downloaded using the CDS Python API. Selecting the \tex
 
 \FloatBarrier
 \subsection{Data model}
+\label{subsection:data_model}
 Data from the Climate Data Store are returned in delimited text files (.csv), with 19 columns per row and one observed value per row. 
 The columns are listed in table \ref{tab:cdm_lite} together with a brief description.  
 The date and time of the observation is given by the \code{date\_time} column, with the value returned as a string of the format \code{YYYY-MM-DD hh:mm:ss}. 

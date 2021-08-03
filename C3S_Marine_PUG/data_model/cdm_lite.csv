@@ -1,5 +1,5 @@
 Field;Kind;Description
-observation\_id;character;Unique identifier for observation.
+observation\_id;character;Unique identifier for observation. For marine observations this has been set as <dataset>-<version>-<uid>-<field>, e.g. ICOADS-30-0NBVN1-AT for an air temperature observation with UID 0NBVN1 from ICOADS release 3.
 report\_type;character; Subdaily / hourly data.
 date\_time;timestamp with time zone (YYYY-MM-DD hh:mm:ss+0Z);Timestamp (date/time) of observation.
 date\_time\_meaning;character; date\_time represents the end of the time period over which the observation was made.
@@ -17,4 +17,4 @@ primary\_station\_id;character;The primary station identifier, e.g. ship callsig
 station\_name;character;Name of the station or site.
 quality\_flag;integer;Flag indicating the quality of the observation.
 data\_policy\_licence;character;Usage permissions / licence for the data.
-source\_id;character;Identifier used to link the observation to the original source of the data.
+source\_id;character;Identifier used to link the observation to the original source of the data. For marine data this links to the version of ICOADS, source and deck identifier and which ICOADS monthly file the record is from. Combined with the observation ID this can be used to trace an observation back to the original source record.
