@@ -1,0 +1,36 @@
+{ "dir_data":"/group_workspaces/jasmin2/glamod_marine/data/marine-user-guide/v4/level2",
+  "dir_out":"/group_workspaces/jasmin2/glamod_marine/data/marine-user-guide/v4/level2/reports",
+  "start":1851,
+  "stop":2010,
+  "id_out":"optimal",
+  "region":"Global",
+  "resolution":"lo_res",
+  "header":
+{
+  "filter_by_values":{"header.report_quality":[0]}
+},
+  "observations-at":
+{
+  "filter_by_values":{"header.report_quality":[0],"observations-at.quality_flag":[0]}
+},
+"observations-dpt":
+{
+  "filter_by_values":{"header.report_quality":[0],"observations-dpt.quality_flag":[0]}
+},
+"observations-slp":
+{
+  "filter_by_values":{"header.report_quality":[0],"observations-slp.quality_flag":[0]}
+},
+"observations-sst":
+{
+  "filter_by_values":{"header.report_quality":[0],"observations-sst.quality_flag":[0]}
+},
+"observations-wd":
+{
+  "filter_by_values":{"header.report_quality":[0],"observations-wd.quality_flag":[0]}
+},
+"observations-ws":
+{
+  "filter_by_values":{"header.report_quality":[0],"observations-ws.quality_flag":[0]}
+}
+}

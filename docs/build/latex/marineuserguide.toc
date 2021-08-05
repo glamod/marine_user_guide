@@ -1,0 +1,55 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Indices and tables}{1}{chapter.1}% 
+\contentsline {chapter}{\numberline {2}Introduction}{3}{chapter.2}% 
+\contentsline {chapter}{\numberline {3}Tool set\sphinxhyphen {}up}{5}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Code set up}{5}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Data directory setup}{5}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Paths setup}{6}{section.3.3}% 
+\contentsline {chapter}{\numberline {4}Marine User Guide}{7}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Initializing a new user guide}{7}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Data summaries}{8}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}Monthly grids}{8}{subsection.4.2.1}% 
+\contentsline {subsection}{\numberline {4.2.2}Monthly time series of selected quality indicators}{9}{subsection.4.2.2}% 
+\contentsline {section}{\numberline {4.3}Figures}{9}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}Number of reports time series plot}{9}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}Duplicate status time series plot}{9}{subsection.4.3.2}% 
+\contentsline {subsection}{\numberline {4.3.3}Report quality time series plot}{10}{subsection.4.3.3}% 
+\contentsline {subsection}{\numberline {4.3.4}Number of reports Hovm\IeC {\"o}ller plots}{10}{subsection.4.3.4}% 
+\contentsline {subsection}{\numberline {4.3.5}ECV coverage time series plot grid}{10}{subsection.4.3.5}% 
+\contentsline {subsection}{\numberline {4.3.6}Number of reports and number of months maps}{10}{subsection.4.3.6}% 
+\contentsline {subsection}{\numberline {4.3.7}Mean observed value maps}{11}{subsection.4.3.7}% 
+\contentsline {chapter}{\numberline {5}Individual source\sphinxhyphen {}deck reports}{13}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Reports on a release merge}{13}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Data data summaries}{13}{section.5.2}% 
+\contentsline {subsection}{\numberline {5.2.1}Monthly grids}{13}{subsection.5.2.1}% 
+\contentsline {subsection}{\numberline {5.2.2}Monthly time series of selected quality indicators}{14}{subsection.5.2.2}% 
+\contentsline {subsection}{\numberline {5.2.3}Monthly time series with source to C3S IO flow}{14}{subsection.5.2.3}% 
+\contentsline {section}{\numberline {5.3}Figures}{15}{section.5.3}% 
+\contentsline {subsection}{\numberline {5.3.1}ECV reports time series plots}{15}{subsection.5.3.1}% 
+\contentsline {subsection}{\numberline {5.3.2}Observed parameters latitudinal time series}{15}{subsection.5.3.2}% 
+\contentsline {subsection}{\numberline {5.3.3}Duplicate status time series plot}{15}{subsection.5.3.3}% 
+\contentsline {subsection}{\numberline {5.3.4}Report quality time series plot}{16}{subsection.5.3.4}% 
+\contentsline {subsection}{\numberline {5.3.5}Monthly time series with source to C3S IO flow}{16}{subsection.5.3.5}% 
+\contentsline {chapter}{\numberline {6}Appendix 1. Marine User Guide configuration files}{17}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}level2 file format}{17}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Marine user guide data configuration file}{18}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Monthly grids}{19}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Quality indicators time series}{20}{section.6.4}% 
+\contentsline {section}{\numberline {6.5}Number of reports time series plot}{20}{section.6.5}% 
+\contentsline {section}{\numberline {6.6}Duplicate status time series plot}{20}{section.6.6}% 
+\contentsline {section}{\numberline {6.7}Report quality time series plot}{20}{section.6.7}% 
+\contentsline {section}{\numberline {6.8}Number of reports Hovm\IeC {\"o}ller plots}{21}{section.6.8}% 
+\contentsline {section}{\numberline {6.9}ECV coverage time series plot grid}{21}{section.6.9}% 
+\contentsline {section}{\numberline {6.10}Number of reports and number of months maps}{21}{section.6.10}% 
+\contentsline {section}{\numberline {6.11}Mean observed value maps}{22}{section.6.11}% 
+\contentsline {chapter}{\numberline {7}Appendix 2. Individual source\sphinxhyphen {}deck reports configuration files}{25}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Monthly grids (full dataset)}{25}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}Monthly grids (optimal dataset)}{26}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}qi\_counts}{26}{section.7.3}% 
+\contentsline {section}{\numberline {7.4}Monthly time series with source to C3S IO flow}{27}{section.7.4}% 
+\contentsline {section}{\numberline {7.5}ECV reports time series plots (all data)}{27}{section.7.5}% 
+\contentsline {section}{\numberline {7.6}ECV reports time series plots (optimal dataset)}{27}{section.7.6}% 
+\contentsline {section}{\numberline {7.7}Observed parameters latitudinal time series plot}{27}{section.7.7}% 
+\contentsline {section}{\numberline {7.8}Duplicate status time series plot}{28}{section.7.8}% 
+\contentsline {section}{\numberline {7.9}Report quality time series plot}{28}{section.7.9}% 
+\contentsline {section}{\numberline {7.10}Data IO flow plot}{28}{section.7.10}% 

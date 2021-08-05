@@ -1,0 +1,5 @@
+{ "dir_data": "/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e/reports",
+  "file_data": "report_quality-ts.psv",
+  "dir_out": "/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e/reports",
+  "file_out": "report_quality-ts.png"
+}

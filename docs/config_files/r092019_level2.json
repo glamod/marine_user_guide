@@ -1,0 +1,25 @@
+{
+     "year_init": 1950,
+     "year_end": 2010,
+     "params_exclude": [
+        "observations-wbt"
+    ],
+    "001-110": {
+        "exclude": false,
+        "params_exclude": [],
+        "year_end": 1951,
+        "year_init": 1950
+    },
+    "001-116": {
+        "exclude": false,
+        "params_exclude": [],
+        "year_end": 1963,
+        "year_init": 1950
+    },
+    "001-999": {
+        "exclude": false,
+        "params_exclude": [],
+        "year_end": 1969,
+        "year_init": 1967
+    }
+}

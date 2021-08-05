@@ -1,0 +1,57 @@
+{
+  "dir_data":"/group_workspaces/jasmin2/glamod_marine/data/marine-user-guide/v4/level2/reports",
+  "dir_out":"/group_workspaces/jasmin2/glamod_marine/data/marine-user-guide/v4/level2/reports",
+  "projection" : "Mollweide",
+  "colorpalette_nobs":"magma",
+  "colorpalette_nmonths":"magma",
+  "colorbar_title_nobs":"# reports",
+  "colorbar_title_nmonths":"# months",
+  "normalization_nobs":"log",
+  "normalization_nmonths":"log",
+  "colorbar_orien":"h",
+  "tables":
+  {
+    "header":
+      {
+        "nc_file":"header-reports_grid_ts-optimal.nc",
+        "out_file_nobs":"header-reports-map-optimal.png",
+        "out_file_nmonths":"header-months-map-optimal.png"
+      },
+  "observations-at":
+    {
+      "nc_file":"observations-at-reports_grid_ts-optimal.nc",
+      "out_file_nobs":"observations-at-reports-map-optimal.png",
+      "out_file_nmonths":"observations-at-months-map-optimal.png"
+    },
+    "observations-sst":
+      {
+        "nc_file":"observations-sst-reports_grid_ts-optimal.nc",
+        "out_file_nobs":"observations-sst-reports-map-optimal.png",
+        "out_file_nmonths":"observations-sst-months-map-optimal.png"
+    },
+    "observations-dpt":
+      {
+        "nc_file":"observations-dpt-reports_grid_ts-optimal.nc",
+        "out_file_nobs":"observations-dpt-reports-map-optimal.png",
+        "out_file_nmonths":"observations-dpt-months-map-optimal.png"
+    },
+    "observations-slp":
+      {
+        "nc_file":"observations-slp-reports_grid_ts-optimal.nc",
+        "out_file_nobs":"observations-slp-reports-map-optimal.png",
+        "out_file_nmonths":"observations-slp-months-map-optimal.png"
+    },
+    "observations-ws":
+      {
+        "nc_file":"observations-ws-reports_grid_ts-optimal.nc",
+        "out_file_nobs":"observations-ws-reports-map-optimal.png",
+        "out_file_nmonths":"observations-ws-months-map-optimal.png"
+    },
+    "observations-wd":
+      {
+        "nc_file":"observations-wd-reports_grid_ts-optimal.nc",
+        "out_file_nobs":"observations-wd-reports-map-optimal.png",
+        "out_file_nmonths":"observations-wd-months-map-optimal.png"
+    }
+  }
+}

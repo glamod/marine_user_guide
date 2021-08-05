@@ -1,0 +1,23 @@
+{
+    "001-110": {
+        "year_init": 1945,
+        "year_end": 1949,
+        "exclude": false,
+        "params_exclude": []
+    },
+    "001-116": {
+        "year_init": 1945,
+        "year_end": 1949,
+        "exclude": false,
+        "params_exclude": []
+    },
+    "171-711": {
+        "year_init": 1889,
+        "year_end": 1899,
+        "exclude": false,
+        "params_exclude": []
+    },
+    "params_exclude": ["observations-wbt"],
+    "year_init": 1851,
+    "year_end": 1949
+}

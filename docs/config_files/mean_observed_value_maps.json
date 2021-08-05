@@ -1,0 +1,80 @@
+{
+  "dir_data":"/group_workspaces/jasmin2/glamod_marine/data/marine-user-guide/v4/quicklooks",
+  "dir_out":"/group_workspaces/jasmin2/glamod_marine/data/marine-user-guide/v4/quicklooks",
+  "projection" : "Mollweide",
+  "tables":
+  {
+  "observations-at":
+    {
+      "nc_file":"observations-at-mean_grid_ts-optimal.nc",
+      "out_file":"observations-at-mean-map-optimal.png",
+      "scale":1,
+      "offset":-273.15,
+      "colorpalette":"jet",
+      "colorbar_title":"AT ($^\\circ$C)",
+      "colorbar_orien":"h",
+      "cmax_value":35,
+      "cmin_value":-10
+    },
+    "observations-sst":
+      {
+        "nc_file":"observations-sst-mean_grid_ts-optimal.nc",
+        "out_file":"observations-sst-mean-map-optimal.png",
+        "scale":1,
+        "offset":-273.15,
+        "colorpalette":"jet",
+        "colorbar_title":"SST ($^\\circ$C)",
+        "colorbar_orien":"h",
+        "cmax_value":35,
+        "cmin_value":-5
+    },
+    "observations-dpt":
+      {
+        "nc_file":"observations-dpt-mean_grid_ts-optimal.nc",
+        "out_file":"observations-dpt-mean-map-optimal.png",
+        "scale":1,
+        "offset":-273.15,
+        "colorpalette":"jet",
+        "colorbar_title":"DPT ($^\\circ$C)",
+        "colorbar_orien":"h",
+        "cmax_value":35,
+        "cmin_value":-10
+    },
+    "observations-slp":
+      {
+        "nc_file":"observations-slp-mean_grid_ts-optimal.nc",
+        "out_file":"observations-slp-mean-map-optimal.png",
+        "scale":0.01,
+        "offset":0,
+        "colorpalette":"jet",
+        "colorbar_title":"SLP (hPa)",
+        "colorbar_orien":"h",
+        "cmax_value":1030,
+        "cmin_value":980
+    },
+    "observations-ws":
+      {
+        "nc_file":"observations-ws-mean_grid_ts-optimal.nc",
+        "out_file":"observations-ws-mean-map-optimal.png",
+        "scale":1,
+        "offset":0,
+        "colorpalette":"jet",
+        "colorbar_title":"WS (ms$^{-1}$)",
+        "colorbar_orien":"h",
+        "cmax_value":15,
+        "cmin_value":0
+    },
+    "observations-wd":
+      {
+        "nc_file":"observations-wd-mean_grid_ts-optimal.nc",
+        "out_file":"observations-wd-mean-map-optimal.png",
+        "scale":1,
+        "offset":0,
+        "colorpalette":"twilight_shifted",
+        "colorbar_title":"WD (degrees)",
+        "colorbar_orien":"h",
+        "cmax_value":360,
+        "cmin_value":0
+    }
+  }
+}

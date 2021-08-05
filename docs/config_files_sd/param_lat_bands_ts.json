@@ -1,0 +1,16 @@
+{
+  "dir_data":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e/reports",
+  "dir_out":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e/reports",
+  "counts_all_id": "no_reports_grid_ts-all",
+  "counts_optimal_id": "no_reports_grid_ts-optimal",
+  "mean_all_id": "mean_grid_ts-all",
+  "mean_optimal_id": "mean_grid_ts-optimal",
+  "max_all_id": "max_grid_ts-all",
+  "max_optimal_id": "max_grid_ts-optimal",
+  "min_all_id": "min_grid_ts-all",
+  "min_optimal_id": "min_grid_ts-optimal",
+  "start":1851,
+  "stop":2010,
+  "obs_tables":["observations-at","observations-sst","observations-slp",
+                      "observations-dpt","observations-wd","observations-ws"]
+  }

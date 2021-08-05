@@ -1,0 +1,8 @@
+{ "dir_data":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e",
+  "dir_out":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e/reports",
+  "start":1851,
+  "stop":2010,
+  "id_out":"all",
+  "region":"Global",
+  "resolution":"lo_res"
+}

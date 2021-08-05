@@ -1,0 +1,6 @@
+{ "dir_data":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e",
+  "dir_out":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1e/reports",
+  "dir_level1a_ql":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1a/quicklooks",
+  "dir_level1c_ql":"/group_workspaces/jasmin2/glamod_marine/data/release_demo/ICOADS_R3.0.0T/level1c/quicklooks",
+  "periods_file":"/gws/smf/j04/c3s311a_lot2/code/marine_code/glamod-marine-config/obs-suite/release_demo-000000/ICOADS_R3.0.0T/source_deck_periods.json"
+}

@@ -1,0 +1,52 @@
+{
+    "release_names": [
+        "r092019",
+        "release_2.0"
+    ],
+    "dataset_names": {
+        "r092019": "ICOADS_R3.0.0T",
+        "release_2.0": "ICOADS_R3.0.0T"
+    },
+    "year_init": 1851,
+    "year_end": 2010,
+    "params_exclude": [
+        "observations-wbt"
+    ],
+    "001-110": {
+        "year_init": {
+            "r092019": 1950,
+            "release_2.0": 1945
+        },
+        "year_end": {
+            "r092019": 1951,
+            "release_2.0": 1949
+        },
+        "exclude": false,
+        "params_exclude": []
+    },
+    "063-714": {
+        "year_init": {
+            "r092019": 1978
+        },
+        "year_end": {
+            "r092019": 2010
+        },
+        "exclude": false,
+        "params_exclude": [
+            "observations-ws",
+            "observations-dpt",
+            "observations-at",
+            "observations-wd"
+        ]
+    },
+    "152-721": {
+        "year_init": {
+            "release_2.0": 1851
+        },
+        "year_end": {
+            "release_2.0": 1868
+        },
+        "exclude": false,
+        "params_exclude": []
+    }
+}
